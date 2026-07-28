@@ -223,7 +223,7 @@ final class Meridian_Opening_Status {
 			(string) ( $input['phone_link'] ?? $defaults['phone_link'] )
 		);
 
-		$output['contact_url'] = esc_url_raw(
+		$output['contact_url'] = sanitize_text_field(
 			$input['contact_url'] ?? $defaults['contact_url']
 		);
 
@@ -771,10 +771,11 @@ final class Meridian_Opening_Status {
 						<td>
 							<input
 								class="regular-text"
-								type="url"
+								type="text"
 								id="mos-contact-url"
 								name="<?php echo esc_attr( self::OPTION ); ?>[contact_url]"
 								value="<?php echo esc_attr( $settings['contact_url'] ); ?>"
+								placeholder="/contact/"
 							>
 						</td>
 					</tr>
